@@ -12,6 +12,7 @@ namespace ikea
             // IKEA.PrintFunctions();
 
             IKEA.Run();
+            IKEA.PrintVars();
         }
     }
 }

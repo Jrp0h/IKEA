@@ -20,6 +20,15 @@ namespace ikea.Token
             if(parts[0].ToUpper() != instruction)
                 return false;
 
+            // TODO: Fix so that there are only 2 parts
+            //
+            // for(int i = 2; i < parts.Length; i++)
+            // {
+                // parts[1] += " " + parts[i]; 
+            // }
+
+            // System.Console.WriteLine(parts.Length);
+
             return ParseLine(parts, _lineNumber);
         }
 

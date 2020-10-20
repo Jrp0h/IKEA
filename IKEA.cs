@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 
 using ikea.Token;
+using ikea.Memory;
 
 // TODO: Add function begin and end
 namespace ikea
@@ -67,6 +68,9 @@ namespace ikea
 
          if(lines[currentLine].StartsWith("FUN"))
          {
+            if(isInFunction)
+               throw new Exception("Tried declaring a function before another function has been closed");
+
             isInFunction = true;
             ReadNextLine();
             return;
@@ -138,6 +142,10 @@ namespace ikea
          tokens.Add(new JMPBToken());
          tokens.Add(new CALLToken());
          tokens.Add(new PRNTToken());
+         tokens.Add(new MOVToken());
+         tokens.Add(new VARToken());
+         tokens.Add(new ConditionJMPToken("JMPN", 0));
+         tokens.Add(new ConditionJMPToken("JMPJ", 1));
       }
 
       // Cleans the IKEA code from all Comments
@@ -174,6 +182,11 @@ namespace ikea
       public static void PrintFunctions()
       {
         functions.Print();
+      }
+
+      public static void PrintVars()
+      {
+         Register.PrintVars();
       }
    } 
 }
