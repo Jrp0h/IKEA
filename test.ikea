@@ -1,0 +1,10 @@
+PRNT pre-call
+CALL testfun1
+PRNT post-call
+
+FUN testfun1:
+    PRNT call
+    JMPB
+EFUN
+
+; Expected = pre-call, call, post-call, call
