@@ -75,3 +75,10 @@ JMPJ, Jump if value is 1
 ### TODO
 
 src should be able to be a memory location, # perhaps, #1 for mem index 1
+
+
+
+
+### Text
+add character as its ascii value, shift 4 bytes, add another, repeat
+do this 4 times for 4 character as 
